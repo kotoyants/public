@@ -1,0 +1,36 @@
+conky.config={
+double_buffer=true,
+own_window=true,
+own_window_transparent=false,
+own_window_argb_visual=true,
+own_window_argb_value=50,
+own_window_type="dock",
+own_window_hints="undecorated,below,sticky,skip_taskbar,skip_pager",
+short_units=true,
+draw_borders=false,
+draw_shades=false,
+gap_x=5,
+gap_y=5,
+alignment="bottom_left",
+update_interval=2,
+own_window_colour="000000",
+use_xft=true,
+font="Terminus:size=10",
+override_utf8_locale=true,
+use_spacer="none",
+minimum_height=0,
+minimum_width=1920,
+default_color="3399ff",
+color1="e0e0e0"
+};
+
+conky.text=[[
+${alignc}Uptime: ${color1}${uptime_short}${color}  \
+|  Kernel: ${color1}$kernel${color}  \
+|  Cpu: ${color1}${cpu}%${color}  \
+Ram: ${color1}${memperc}%${color}  \
+Root: ${color1}${fs_free /}${color}  Tmp: ${color1}${fs_free /tmp}${color}  \
+${if_up wlp0s20f3}|  Wi-Fi: ${color1}${addr wlp0s20f3}${color}  Up: ${color1}${upspeed wlp0s20f3}${color}  Down: ${color1}${downspeed wlp0s20f3}${color}${endif}  \
+${if_up enp0s31f6}|  Eth: ${color1}${addr enp0s31f6}${color}  Up: ${color1}${upspeed enp0s31f6}${color}  Down: ${color1}${downspeed enp0s31f6}${color}${endif}${alignc} \
+|  WAN: ${color1}${exec curl -s www.ifconfig.me}${color}  NS: ${color1}${exec drill -4 1.1.1.1|grep SERVER|awk -F ': ' '{print $2}'} 
+]]
